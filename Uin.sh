@@ -13,4 +13,12 @@ flatpak install net.davidotek.pupgui2
 # Update and Upgrade before reboot
 sudo apt update && sudo apt upgrade
 # restart PC following updates
-sudo shutdown -r now
+read -p "Okay to restart? (yes/no) " yn
+
+case $yn in
+        yes ) shutdown -r now;;
+        no ) echo "standing by";
+                exit;;
+        * ) echo invalid response;
+                exit 1;;
+esac
